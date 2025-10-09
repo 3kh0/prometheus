@@ -2,6 +2,9 @@ import 'dotenv/config';
 import { App } from '@slack/bolt';
 import { purge } from './lib/purge.js';
 import { check } from './lib/perms.js';
+import { RateLimiter } from './lib/ratelimiter.js';
+
+const rateLimiter = new RateLimiter(1000, 5);
 
 const app = new App({
   token: process.env.SLACK_USER_TOKEN,
@@ -195,9 +198,11 @@ app.shortcut('delete_message', async ({ shortcut, ack, client, logger }) => {
   }
 
   try {
-    await client.chat.delete({
-      channel: shortcut.channel.id,
-      ts: shortcut.message.ts
+    await rateLimiter.exec(async () => {
+      await client.chat.delete({
+        channel: shortcut.channel.id,
+        ts: shortcut.message.ts
+      });
     });
     logger.info(`delete_message done ${shortcut.message.ts}`);
   } catch (error) {
