@@ -1,0 +1,20 @@
+{
+  "name": "prometheus",
+  "version": "1.0.0",
+  "description": "giving power to the people",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "slack",
+    "bot"
+  ],
+  "author": "",
+  "dependencies": {
+    "@slack/bolt": "^4.5.0",
+    "dotenv": "^17.2.3"
+  }
+}
