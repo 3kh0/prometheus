@@ -5,13 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch index.js"
+    "start": "bun index.js",
+    "dev": "bun --watch index.js"
   },
-  "keywords": [
-    "slack",
-    "bot"
-  ],
   "author": "",
   "dependencies": {
     "@slack/bolt": "^4.6.0",
