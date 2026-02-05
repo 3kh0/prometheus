@@ -1,7 +1,0 @@
-commands/admin - only workspace admin/owner, appointed global admin, and super admins defined in .env (the .env check should stay in the admin.js file since we should only use it once there, no where else)
-commands/channel - can manage, aka anyone with some level of access.
-commands/here - can manage, aka anyone with some level of access.
-commands/ping - everyone
-
-shortcuts/delete - can manage, aka anyone with some level of access.
-shortcuts/destory - can manage, aka anyone with some level of access.
