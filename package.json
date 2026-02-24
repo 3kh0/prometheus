@@ -11,6 +11,6 @@
   "author": "",
   "dependencies": {
     "@slack/bolt": "^4.6.0",
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.3.1"
   }
 }
