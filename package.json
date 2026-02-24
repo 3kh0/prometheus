@@ -6,11 +6,17 @@
   "type": "module",
   "scripts": {
     "start": "bun index.js",
-    "dev": "bun --watch index.js"
+    "dev": "bun --watch index.js",
+    "lint": "eslint ."
   },
   "author": "",
   "dependencies": {
     "@slack/bolt": "^4.6.0",
     "dotenv": "^17.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "eslint": "^9.27.0",
+    "globals": "^17.3.0"
   }
 }
