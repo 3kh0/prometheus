@@ -30,6 +30,7 @@ oauth_config:
   scopes:
     bot:
       - channels:join
+      - channels:read
       - chat:write
       - chat:write.customize
       - commands
@@ -44,6 +45,8 @@ oauth_config:
 
 settings:
   event_subscriptions:
+    bot_events:
+      - member_joined_channel
     user_events:
       - message.channels
       - message.groups
