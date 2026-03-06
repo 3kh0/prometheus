@@ -15,8 +15,8 @@
     "dotenv": "^17.3.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.3",
-    "eslint": "^9.39.3",
-    "globals": "^17.3.0"
+    "@eslint/js": "^9.39.4",
+    "eslint": "^9.39.4",
+    "globals": "^17.4.0"
   }
 }
