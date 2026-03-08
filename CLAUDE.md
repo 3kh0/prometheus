@@ -27,6 +27,7 @@ Prometheus is a Slack bot built with `@slack/bolt` in Socket Mode. It runs via `
 - `lib/actions/` — block kit action handlers. Each exports `{ actionId, execute }`.
 
 **Permission model** (`lib/perms.js`):
+
 - `isGlobalAdmin` — stored in SQLite `global_admins` table; seeded from `SUPERADMINS` env var
 - `isWorkspaceAdmin` — Slack API check (`users.info`)
 - `isChannelManager` — `appointed_managers` with `role = 'manager'`
@@ -38,12 +39,14 @@ Prometheus is a Slack bot built with `@slack/bolt` in Socket Mode. It runs via `
 
 **Logging** (`lib/logger.js`): Logs deletions and thread nukes to `LOG_CHANNEL`. Uses `SLACK_BOT_TOKEN` for posting log messages and `HACKCLUB_CDN_KEY` for archiving thread content to the Hack Club CDN.
 
+**Moderation** (`lib/moderation.js`): Wraps Slack's undocumented enterprise moderation APIs (`moderation.thread.hide`, `moderation.locks.create/remove`) using a browser token (`xoxc-`) and session cookie. Optional — when credentials are not configured, the destroy thread shortcut falls back to full delete only.
+
 **Rate limiter** (`lib/ratelimiter.js`): Handles Slack API rate limits with exponential backoff. Used by `lib/purge.js` for batch message deletion.
 
 ## Environment Variables
 
 | Variable | Purpose |
-|---|---|
+| --- | --- |
 | `SLACK_BOT_TOKEN` | Bot token (xoxb) — used for posting messages |
 | `SLACK_USER_TOKEN` | User token (xoxp) — workspace admin, used for deletion and admin APIs |
 | `SLACK_APP_TOKEN` | App-level token (xapp) with `connections:write` for Socket Mode |
@@ -51,21 +54,26 @@ Prometheus is a Slack bot built with `@slack/bolt` in Socket Mode. It runs via `
 | `SUPERADMINS` | Comma-separated Slack user IDs seeded as global admins |
 | `LOG_CHANNEL` | Channel ID for audit logging (optional) |
 | `HACKCLUB_CDN_KEY` | CDN API key for archiving deleted threads (optional) |
+| `SLACK_BROWSER_TOKEN` | Browser token (xoxc) for undocumented moderation APIs (optional) |
+| `SLACK_COOKIE` | Session cookie (`d=` value) paired with browser token (optional) |
 
 ## Adding a New Command
 
 Create `lib/commands/<name>.js` exporting:
+
 ```js
 export default {
   name: 'yourcommand',
   async execute({ command, args, respond, client, logger }) { ... }
 };
 ```
+
 It will be auto-discovered and available as `/pro yourcommand`.
 
 ## Adding a New Shortcut
 
 Create `lib/shortcuts/<name>.js` exporting:
+
 ```js
 export default {
   callbackId: 'your_callback',
@@ -74,4 +82,5 @@ export default {
   async handleView(args) { ... }, // optional
 };
 ```
+
 Register the `callback_id` in `slack.manifest.yaml` under `features.shortcuts`.
