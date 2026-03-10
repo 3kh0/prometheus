@@ -47,6 +47,7 @@ oauth_config:
 settings:
   event_subscriptions:
     bot_events:
+      - app_home_opened
       - member_joined_channel
     user_events:
       - message.channels
