@@ -42,6 +42,7 @@ oauth_config:
       - groups:write
       - users.profile:write
       - users:read
+      - users:read.email
 
 settings:
   event_subscriptions:
