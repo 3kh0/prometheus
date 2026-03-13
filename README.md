@@ -30,9 +30,8 @@ All actions work only if the user is a channel manager for public channels or a 
    - `LOG_CHANNEL`: Channel ID to post audit logs to (optional but recommended)
    - `HACKCLUB_CDN_KEY`: CDN API key for archiving deleted thread transcripts (optional)
 6. All commands is routed through `/pro`.
-7. If you want `/pro manager` to work, update `FIELD_ID` in `lib/commands/manager.js` to a custom profile field ID from your workspace.
-8. `bun install && bun start`
-9. Profit???
+7. `bun install && bun start`
+8. Profit???
 
 You should be able to see two new message actions.
 
