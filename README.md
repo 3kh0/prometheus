@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="icon" width="250" src="https://github.com/user-attachments/assets/8061b824-f02c-45db-b5e7-de8f0a401b7b" />
+  <img alt="icon" width="250" src="https://github.com/user-attachments/assets/196e153b-1ef2-4a83-89a3-1bde9a0afe28" />
   <br>Prometheus
 </h1>
 
