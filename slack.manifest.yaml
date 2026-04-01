@@ -29,11 +29,13 @@ features:
 oauth_config:
   scopes:
     bot:
+      - channels:history
       - channels:join
       - channels:read
       - chat:write
       - chat:write.customize
       - commands
+      - groups:history
       - im:write
     user:
       - channels:history
@@ -51,7 +53,6 @@ settings:
     bot_events:
       - app_home_opened
       - member_joined_channel
-    user_events:
       - message.channels
       - message.groups
   interactivity:
