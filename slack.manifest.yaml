@@ -20,6 +20,10 @@ features:
       type: message
       callback_id: delete_message
       description: Delete a single message.
+    - name: Clear Embeds
+      type: message
+      callback_id: clear_embeds
+      description: Remove link previews from a message.
   slash_commands:
     - command: /pro
       description: Use Prometheus
