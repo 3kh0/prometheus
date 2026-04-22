@@ -11,7 +11,7 @@
   },
   "author": "",
   "dependencies": {
-    "@slack/bolt": "^4.7.0",
+    "@slack/bolt": "^4.7.1",
     "dotenv": "^17.4.2"
   },
   "devDependencies": {
