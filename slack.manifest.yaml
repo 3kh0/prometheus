@@ -24,6 +24,10 @@ features:
       type: message
       callback_id: clear_embeds
       description: Remove link previews from a message.
+    - name: Manage Embeds
+      type: message
+      callback_id: manage_embeds
+      description: Manage link previews in a message.
   slash_commands:
     - command: /pro
       description: Use Prometheus
