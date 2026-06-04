@@ -20,6 +20,14 @@ features:
       type: message
       callback_id: delete_message
       description: Delete a single message.
+    - name: Clear Embeds
+      type: message
+      callback_id: clear_embeds
+      description: Remove link previews from a message.
+    - name: Manage Embeds
+      type: message
+      callback_id: manage_embeds
+      description: Manage link previews in a message.
   slash_commands:
     - command: /pro
       description: Use Prometheus
@@ -29,11 +37,13 @@ features:
 oauth_config:
   scopes:
     bot:
+      - channels:history
       - channels:join
       - channels:read
       - chat:write
       - chat:write.customize
       - commands
+      - groups:history
       - im:write
     user:
       - channels:history
@@ -51,7 +61,6 @@ settings:
     bot_events:
       - app_home_opened
       - member_joined_channel
-    user_events:
       - message.channels
       - message.groups
   interactivity:
