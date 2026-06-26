@@ -49,7 +49,6 @@ oauth_config:
       - channels:history
       - channels:write
       - chat:write
-      - im:write
       - groups:history
       - groups:write
       - users.profile:read
