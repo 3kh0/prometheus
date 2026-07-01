@@ -13,7 +13,7 @@
   "dependencies": {
     "@slack/bolt": "^4.7.3",
     "dotenv": "^17.4.2",
-    "tldts": "^7.0.30"
+    "tldts": "^7.4.5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
